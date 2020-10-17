@@ -50,6 +50,8 @@ app.use(flash())
 
 app.use(express.static('public'))
 
+app.use(express.urlencoded({ extended: false }))
+
 app.use(express.json())
 
 

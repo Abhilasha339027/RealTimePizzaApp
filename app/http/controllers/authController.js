@@ -1,3 +1,5 @@
+const User = require('../../models/user')
+
 function authController(){
     //in this we use the factory function.Factory function is a simple function which return the object.
     //CRUD controller 
@@ -8,6 +10,17 @@ function authController(){
 
         register(req,res){
             res.render('auth/register')
+        },
+        postRegister(req,res) {
+            const { name, email, password } = req.body
+
+           //Validate error
+
+           if(!name || !email || !password){
+               req.flash('error','All fields are required')
+               return res.redirect('/register')
+           }
+            console.log(req.body)
         }
     }
 }
