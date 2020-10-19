@@ -11,6 +11,7 @@ const mongoose = require('mongoose')
 const session = require('express-session')
 const flash = require('express-flash')
 const MongoDbStore = require('connect-mongo')(session)
+const passport = require('passport')
 
 // Database connection
    
@@ -23,6 +24,10 @@ const MongoDbStore = require('connect-mongo')(session)
       console.log('Connection failed...')
   
   });
+
+
+
+
 
 //Session  Store
  let mongoStore = new MongoDbStore({
@@ -44,6 +49,18 @@ app.use(session({
 
 }))
 
+
+
+//Passport config
+const passportInit = require('./app/config/passport')
+passportInit(passport)
+app.use(passport.initialize())
+app.use(passport.session())//we use the sessions because passport works on sessions .
+
+
+
+
+
 app.use(flash())
 
 //assets
@@ -59,6 +76,7 @@ app.use(express.json())
 
 app.use((req,res,next)=>{
        res.locals.session = req.session
+       res.locals.user = req .user
        next()
 
 })
