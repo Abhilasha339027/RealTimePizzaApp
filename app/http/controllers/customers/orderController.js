@@ -23,7 +23,7 @@ function orderController () {
 
             order.save().then(result => {
                 req.flash('success', 'Order placed successfully')
-                return res.redirect('/')
+                return res.redirect('/customer/orders')
 
             }).catch(err => {
                 req.flash('error','Something went wrong')
