@@ -4,6 +4,11 @@ const passport = require('passport')
 function authController(){
     //in this we use the factory function.Factory function is a simple function which return the object.
     //CRUD controller 
+
+   const _getRedirectUrl = (req) =>{
+       return req.user.role === 'admin' ? '/admin/orders' : '/customer/orders'
+   }
+
     return{
         login(req,res){
          res.render('auth/login')
@@ -37,7 +42,7 @@ function authController(){
                       return next(err)
                   }
 
-                  return res.redirect('/')
+                  return res.redirect(_getRedirectUrl(req))
               })
             })(req, res , next)
         },
