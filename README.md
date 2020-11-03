@@ -1,2 +1,11 @@
-# RealTimePizzaApp
-It's is real time pizza tracker app.I made this project ,so i can understand the backend part properaly .I used the node,express and mongodb for the backend and for the frontend part ,used the tailwind css framework .
+# Realtime pizza app using Node-express-mongo-socket.io
+
+![Realtime Pizza app](https://github.com/codersgyan/realtime-pizza-app-node-express-mongo/blob/master/Screenshot%202020-09-21%20at%2023.03.06.png?raw=true)
+
+
+
+
+## Installation 
+After download or clone run `npm install` OR `yarn install` to install all the dependancies.
+
+🙏 If you find this repo helpful then don't forget to give a start ❇️ to this repository. :)
